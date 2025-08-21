@@ -6,6 +6,8 @@ func main() {
 
 	fmt.Println("Hello World!")
 
+	// to make an operation have to function call
+
 	//	variables()
 
 	//	userInput()
@@ -14,5 +16,7 @@ func main() {
 
 	// myTime()
 
-	myPointer()
+	// myPointer()
+
+	arr()
 }
