@@ -7,7 +7,7 @@ import (
 // const keywords are immutable their value cannot be modified ,if want to create public variable, name of the variable,s first letter should be in capital letter
 const LoginToken string = "login_token"
 
-func main() {
+func variables() {
 
 	// print statements, placeholders, implicit type variables go decide itself hat type of variable is by given value
 	var name = "ankit"

@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func main() {
+func userInput() {
 
 	var welcome = "welcome to user input"
 	fmt.Println(welcome)

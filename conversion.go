@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func main() {
+func conversion() {
 	fmt.Println("welcome to pizza app")
 	fmt.Printf("rate our in between 1 to 10 \n")
 

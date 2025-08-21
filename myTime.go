@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main() {
+func myTime() {
 
 	fmt.Println("welcome to time study of Go")
 
