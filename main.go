@@ -18,5 +18,7 @@ func main() {
 
 	// myPointer()
 
-	arr()
+	// arr()
+
+	slices()
 }
