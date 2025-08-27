@@ -24,5 +24,7 @@ func main() {
 
 	// maps()
 
-	structs()
+	// structs()
+
+	ifElse()
 }
