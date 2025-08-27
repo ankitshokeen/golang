@@ -22,5 +22,7 @@ func main() {
 
 	// slices()
 
-	maps()
+	// maps()
+
+	structs()
 }
