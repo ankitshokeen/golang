@@ -20,5 +20,7 @@ func main() {
 
 	// arr()
 
-	slices()
+	// slices()
+
+	maps()
 }
