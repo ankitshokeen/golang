@@ -26,5 +26,7 @@ func main() {
 
 	// structs()
 
-	ifElse()
+	// ifElse()
+
+	switchCase()
 }
