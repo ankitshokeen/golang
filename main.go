@@ -30,5 +30,7 @@ func main() {
 
 	// switchCase()
 
-	loop()
+	// loop()
+
+	function()
 }
