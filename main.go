@@ -28,5 +28,7 @@ func main() {
 
 	// ifElse()
 
-	switchCase()
+	// switchCase()
+
+	loop()
 }
