@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 func deferKey() {
+	fmt.Println("welcome to defer class")
+
 	// defer keyword make that program execute at last first it will be storing in stack using last in first out principle
 	defer fmt.Println("ankit")
 	defer fmt.Println("is")
@@ -19,4 +21,4 @@ func deferNum() {
 	}
 }
 
-// here is expected output will be (hello world, 54321 my name is ankit
+// here is expected output will be (hello world, 54321 my name is ankit)

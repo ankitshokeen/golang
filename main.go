@@ -36,5 +36,7 @@ func main() {
 
 	// methods()
 
-	deferKey()
+	// deferKey()
+
+	files()
 }
