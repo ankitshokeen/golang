@@ -34,5 +34,7 @@ func main() {
 
 	// function()
 
-	methods()
+	// methods()
+
+	deferKey()
 }
