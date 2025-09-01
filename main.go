@@ -32,5 +32,7 @@ func main() {
 
 	// loop()
 
-	function()
+	// function()
+
+	methods()
 }
