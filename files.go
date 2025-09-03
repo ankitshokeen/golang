@@ -8,7 +8,7 @@ import (
 func files() {
 	fmt.Println("welcome to files class")
 
-	content := "files class in golag"
+	content := "files class in golang"
 
 	// in os package it has create method which is used to create new file os.Create("address")
 	file, err := os.Create("./testFile.txt")
