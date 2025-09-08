@@ -40,5 +40,7 @@ func main() {
 
 	// files()
 
-	webRequest()
+	// webRequest()
+
+	urlS()
 }
