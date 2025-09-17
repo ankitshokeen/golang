@@ -42,5 +42,9 @@ func main() {
 
 	// webRequest()
 
-	urlS()
+	// urlS()
+
+	// getReq()
+
+	jsonData()
 }

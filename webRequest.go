@@ -6,30 +6,26 @@ import (
 	"net/http"
 )
 
-const url = "https://ankit.dev"
+const myUrl string = "https://fakestoreapi.com/products/1"
 
 // handling web requests
 func webRequest() {
 	fmt.Println("welcome to web request handling class")
 
-	response, err := http.Get(url)
+	fmt.Println("web request class")
+
+	response, err := http.Get(myUrl)
 
 	if err != nil {
 		panic(err)
 	}
-
-	fmt.Printf("response type is: %T \n", response)
-
-	dataByte, err := ioutil.ReadAll(response.Body)
-
-	if err != nil {
-		panic(err)
-	}
-
-	content := string(dataByte)
-
-	fmt.Println(content)
-	fmt.Println(dataByte)
 
 	defer response.Body.Close()
+
+	fmt.Printf("type of response data is %T \n", response)
+	fmt.Println("response data is: ", response)
+
+	resByteData, _ := ioutil.ReadAll(response.Body)
+	fmt.Println("byte data to response is ", resByteData)
+	fmt.Println(string(resByteData))
 }
