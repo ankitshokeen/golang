@@ -46,5 +46,13 @@ func main() {
 
 	// getReq()
 
-	jsonData()
+	// jsonData()
+
+	// GETrequest()
+
+	// POSTrequest()
+
+	// UPDATErequest()
+
+	deleteReq()
 }
