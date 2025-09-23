@@ -8,11 +8,11 @@ func main() {
 
 	// to make an operation have to function call
 
-	//	variables()
+	// variables()
 
-	//	userInput()
+	// userInput()
 
-	//	conversion()
+	// conversion()
 
 	// myTime()
 
@@ -54,5 +54,7 @@ func main() {
 
 	// UPDATErequest()
 
-	deleteReq()
+	// deleteReq()
+
+	goRoutine()
 }
