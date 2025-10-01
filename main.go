@@ -56,5 +56,7 @@ func main() {
 
 	// deleteReq()
 
-	goRoutine()
+	// goRoutine()
+
+	syncWait()
 }
