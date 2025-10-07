@@ -12,7 +12,7 @@ import (
 
 type URL struct {
 	ID           string    `json:"id"`
-	OrignalURL   string    `json:"orignal_url"`
+	OriginalURL  string    `json:"original_url"`
 	ShortenURL   string    `json:"shorten_url"`
 	CreationDate time.Time `json:"creation_time"`
 }
@@ -20,45 +20,36 @@ type URL struct {
 var urlDB = make(map[string]URL)
 
 func main() {
-	fmt.Println("Starting URL-Shortner...")
-
-	// var urlToBeConverted = "https://github.com/ankitshokeen/golang"
-	// generateShortURL(urlToBeConverted)
+	fmt.Println("Starting URL-Shortener...")
 
 	http.HandleFunc("/", rootPage)
 	http.HandleFunc("/short", shortURLhandler)
+	http.HandleFunc("/redirect/", redirectURLhandler)
 
-	fmt.Println("starting server on port 8080")
+	fmt.Println("Starting server on port 8080")
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		fmt.Println("Error while starting server")
 		panic(err)
 	}
-
 }
 
-func generateShortURL(OrignalURL string) string {
+func generateShortURL(OriginalURL string) string {
 	hasher := md5.New()
-	hasher.Write([]byte(OrignalURL))
-	// fmt.Println("hashed value: ", hasher)
-
+	hasher.Write([]byte(OriginalURL))
 	data := hasher.Sum(nil)
-	// fmt.Println("hashed data in slice : ", data)
-
 	hash := hex.EncodeToString(data)
-	// fmt.Println("encoded to string: ", hash)
-
-	fmt.Println("final shortened: ", hash[:5])
+	fmt.Println("Final shortened:", hash[:5])
 	return hash[:5]
 }
 
-func createURL(OrignalURL string) string {
-	shortURL := generateShortURL(OrignalURL)
+func createURL(OriginalURL string) string {
+	shortURL := generateShortURL(OriginalURL)
 	id := shortURL
 
 	urlDB[id] = URL{
 		ID:           id,
-		OrignalURL:   OrignalURL,
+		OriginalURL:  OriginalURL,
 		ShortenURL:   shortURL,
 		CreationDate: time.Now(),
 	}
@@ -71,7 +62,6 @@ func getURL(id string) (URL, error) {
 	if !ok {
 		return URL{}, errors.New("URL not found")
 	}
-
 	return url, nil
 }
 
@@ -89,14 +79,13 @@ func shortURLhandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	shortURL := generateShortURL(data.URL)
-	// fmt.Fprintf(w, shortURL)
+	shortURL := createURL(data.URL)
 
 	response := struct {
-		Shortend string `json:"short_url"`
-	}{Shortend: shortURL}
+		Shortened string `json:"short_url"`
+	}{Shortened: shortURL}
 
-	w.Header().Set("content-type", "application/json")
+	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
 
@@ -104,8 +93,9 @@ func redirectURLhandler(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Path[len("/redirect/"):]
 	url, err := getURL(id)
 	if err != nil {
-		http.Error(w, "Invalid request", http.StatusNotFound)
+		http.Error(w, "URL not found", http.StatusNotFound)
+		return
 	}
 
-	http.Redirect(w, r, url.OrignalURL, http.StatusNotFound)
+	http.Redirect(w, r, url.OriginalURL, http.StatusFound)
 }
