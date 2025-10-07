@@ -40,13 +40,13 @@ func main() {
 func generateShortURL(OrignalURL string) string {
 	hasher := md5.New()
 	hasher.Write([]byte(OrignalURL))
-	fmt.Println("hashed value: ", hasher)
+	// fmt.Println("hashed value: ", hasher)
 
 	data := hasher.Sum(nil)
-	fmt.Println("hashed data in slice : ", data)
+	// fmt.Println("hashed data in slice : ", data)
 
 	hash := hex.EncodeToString(data)
-	fmt.Println("encoded to string: ", hash)
+	// fmt.Println("encoded to string: ", hash)
 
 	fmt.Println("final shortened: ", hash[:5])
 	return hash[:5]
